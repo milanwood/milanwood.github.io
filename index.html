@@ -70,7 +70,7 @@
           <img src="assets/img/me.jpg" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>Bachelor of Fine Arts</h3>
+          <h3>High Quality Hand-Crafted Woodworking</h3>
           <p class="font-italic">
             Academy of Fine Arts | Prague
           </p>
@@ -167,8 +167,8 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Artwork</h2>
-        <p>Here is some of my artwork...</p>
+        <h2>Portfolio</h2>
+        <p>Here is some of my work...</p>
       </div>
 
       <div class="row">
@@ -195,14 +195,14 @@
 
       <br>
 
-      <div class="row portfolio-container">
+      <div class="row portfolio-container" id="portfolio-container">
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-bath">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-bath" id="portfolio-base-item">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/bath/bath1.jpg" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h3>Bath</h3>
-              <!--<h4>Painting</h4>-->
+              <h4>Painting</h4>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@
           <div class="info-box">
             <i class="bx bx-map"></i>
             <h3>My Location</h3>
-            <p>Canada, AB | Europe, SK</p>
+            <p>Canada, AB</p>
           </div>
         </div>
 
@@ -246,13 +246,13 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>Email</h3>
-            <p>amukartgallery@gmail.com</p>
+            <p>milanwood.ltd@gmail.com</p>
           </div>
         </div>
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-phone-call"></i>
-            <h3>Art Classes & Commissioned Artwork</h3>
+            <h3>Custom Woodworking</h3>
             <p>Inquire by email</p>
           </div>
         </div>
@@ -264,14 +264,6 @@
 
     </div>
   </section><!-- End Contact Section -->
-
-  <!-- <div class="credits">
-    <#!-- All the links in the footer should remain intact. --#>
-    <#!-- You can delete the links only if you purchased the pro version. --#>
-    <#!-- Licensing information: https://bootstrapmade.com/license/ --#>
-    <#!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ --#>
-    Desi gned by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>-->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -286,6 +278,66 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Portfolio Item-->
+  <script type="text/html" id="portfolio-item-block">
+    
+    <div class="col-lg-4 col-md-6 portfolio-item filter-bath">
+      <div class="portfolio-wrap">
+        <img src="assets/img/portfolio/bath2.jpg" class="img-fluid" alt="">
+        <div class="portfolio-info">
+          <h3>temp</h3>
+          <h4>temp</h4>
+        </div>
+      </div>
+    </div>
+
+  </script>
+  
+  <!-- Populate Portfolio -->
+  <script type="text/javascript">
+    
+    let parent = document.getElementById("portfolio-container");
+    let srcString  = "assets/img/portfolio/";
+    const types = {
+      bar: 15,
+      bath: 24, 
+      closet: 15, 
+      dine: 4,
+      door: 14, 
+      fire: 21,
+      kitchen: 39, 
+      laundry: 5, 
+      mud: 7, 
+      office: 10, 
+      custom: 70
+    };
+
+    let item = document.getElementById("portfolio-item-block").innerHTML;
+    console.log(item);
+
+    for (const type in types) {
+      console.log(type);
+      for (var i = 0; i < types[type]; i++) {
+
+      // let item = document.getElementById("portfolio-base-item");
+      let div = document.createElement("div");
+      div.className = "col-lg-4 col-md-6 portfolio-item filter-bath";
+      div.innerHTML = `
+        <div class="portfolio-wrap">
+        <img src="assets/img/portfolio/bath/bath2.jpg" class="img-fluid" alt="">
+        <div class="portfolio-info">
+          <h3>temp</h3>
+          <h4>temp</h4>
+        </div>
+        </div>
+      `
+      parent.appendChild(div);
+      console.log(i);
+      }
+    }
+
+  </script>>
 
 </body>
 
