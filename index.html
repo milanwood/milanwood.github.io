@@ -102,7 +102,7 @@
     <div class="skills container">
 
       <div class="section-title">
-        <h2>Exhibitions</h2>
+        <h2>I specialize in</h2>
       </div>
 
       <div class="row skills-content">
@@ -188,15 +188,16 @@
             <li data-filter=".filter-custom">Customs</li>
           </ul>
         </div>
-        <div class="col-lg-12 d-flex justify-content-center">
-          <h4>For custom designs please contact me</h4>
-        </div>
+<!--         <div class="col-lg-12 d-flex justify-content-center">
+          <h4>For any inquries please <a href="#contact">Contact</a> me </h4>
+        </div> -->
       </div>
 
       <br>
 
       <div class="row portfolio-container" id="portfolio-container">
 
+        <!--
         <div class="col-lg-4 col-md-6 portfolio-item filter-bath" id="portfolio-base-item">
           <div class="portfolio-wrap">
             <img src="assets/img/portfolio/bath/bath1.jpg" class="img-fluid" alt="">
@@ -206,6 +207,7 @@
             </div>
           </div>
         </div>
+        -->
 
       </div>
 
@@ -278,21 +280,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <!-- Portfolio Item-->
-  <script type="text/html" id="portfolio-item-block">
-    
-    <div class="col-lg-4 col-md-6 portfolio-item filter-bath">
-      <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/bath2.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h3>temp</h3>
-          <h4>temp</h4>
-        </div>
-      </div>
-    </div>
-
-  </script>
   
   <!-- Populate Portfolio -->
   <script type="text/javascript">
@@ -300,41 +287,51 @@
     let parent = document.getElementById("portfolio-container");
     let srcString  = "assets/img/portfolio/";
     const types = {
-      bar: 15,
-      bath: 24, 
-      closet: 15, 
-      dine: 4,
-      door: 14, 
-      fire: 21,
-      kitchen: 39, 
-      laundry: 5, 
-      mud: 7, 
-      office: 10, 
-      custom: 70
+      bar: {num: 15, name: "Wine & Bar", filter: "filter-bar"}, 
+      bath: {num: 24, name: "Bathroom", filter: "filter-bath"}, 
+      closet: {num: 15, name: "Closet", filter: "filter-closet"}, 
+      dine: {num: 4, name: "Dinning", filter: "filter-dine"},
+      door: {num: 14, name: "Door", filter: "filter-door"}, 
+      fire: {num: 21, name: "Fireplace", filter: "filter-fire"},
+      kitchen: {num: 39, name: "Kitchen", filter: "filter-kitchen"}, 
+      laundry: {num: 5, name: "Laundry", filter: "filter-laundry"}, 
+      mud: {num: 7, name: "Mudroom", filter: "filter-mud"}, 
+      office: {num: 10, name: "Office", filter: "filter-office"}, 
+      custom: {num: 70, name: "Custom Piece", filter: "filter-custom"}
     };
 
-    let item = document.getElementById("portfolio-item-block").innerHTML;
-    console.log(item);
+    let divs = []; 
 
     for (const type in types) {
       console.log(type);
-      for (var i = 0; i < types[type]; i++) {
+      for (var i = 1; i < (types[type].num + 1); i++) {
 
-      // let item = document.getElementById("portfolio-base-item");
       let div = document.createElement("div");
-      div.className = "col-lg-4 col-md-6 portfolio-item filter-bath";
+      div.className = "col-lg-4 col-md-6 portfolio-item " + types[type].filter;
       div.innerHTML = `
         <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/bath/bath2.jpg" class="img-fluid" alt="">
+        <img src="assets/img/portfolio/${type}/${type}${i}.jpg" class="img-fluid" alt="">
         <div class="portfolio-info">
-          <h3>temp</h3>
-          <h4>temp</h4>
+          <h3>${types[type].name}</h3>
+          <h4>#${i}</h4>
         </div>
         </div>
       `
-      parent.appendChild(div);
-      console.log(i);
+
+      divs.push(div);
+
       }
+    }
+
+    // shuffle array
+    let shuffled = divs
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+
+    for (var i = 1; i < shuffled.length ; i++) {
+      parent.appendChild(shuffled[i]);
+      console.log(i);
     }
 
   </script>>
