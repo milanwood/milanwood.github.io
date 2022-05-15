@@ -72,34 +72,31 @@
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>High Quality Hand-Crafted Woodworking</h3>
           <p class="font-italic">
-            Academy of Fine Arts | Prague
+            Milanwood Ltd. | Est. 2012
           </p>
           <p>
-            Katarina’s mixed media work combines large scale drawings, 
-            paintings on canvas or wood and sculptures. She predominantly works from 
-            observation and has explored a wide range of genres like landscapes, portraiture, 
-            figure, still life and three-dimensional realizations in wood and objects from nature 
-            like driftwood, pebbles, shells or tree bark. 
+            Milanwood Ltd. was established in 2012 and since then has been making custom furniture for individuals and corporate entities. All designs are hand-crafted and tailored to the customers specific desires to ensure the best combination of quality, durability and asthectics at a reasonable price.   
           </p>
           <br>
           <p>
-            In her artwork she wants to employ the world around her, which she feels 
-            a relationship with. Art is her chance to capture a special moment in nature’s 
-            infinite time to create and celebrate what is beautiful, noble or important to the 
-            human spirit.
+            Milanwood is endlessly delighted and increasingly fascinated by the joy of selling beautifully made and enduring pieces of furniture to everyone.
           </p>
           <br>
-          <h3>Art Classes</h3>
+          <p>
+            In the background I (Milan Pistek, Founder & CEO) have been in the custom woodworking industry for about 34 years. Working for architectural millwork companies as lead  woodworker specializing for commercial/industrial residential projects throughout Canada & USA. Including special architectural millwork and furniture for courthouses,churches,commercial/industrial buildings, yachts and luxury residential houses.
+          </p>
+          <br>
           <p class="font-italic">
-            Contact me for more information on art classes I offer
+            He who works with his hands is a labourer. He who works with his hands and his head is a craftsman. He who works with his hands and his head and his heart is an artist.
           </p>
+          <h6><i>- Saint Francis of Assisi</i></h6>
         </div>
       </div>
 
     </div><!-- End About Me -->
 
     <!-- ======= Skills  ======= -->
-    <div class="skills container">
+    <!-- <div class="skills container">
 
       <div class="section-title">
         <h2>I specialize in</h2>
@@ -107,7 +104,6 @@
 
       <div class="row skills-content">
 
-        <!-- Software -->
         <div class="col-lg-2">
 
           <div class="progress">
@@ -156,7 +152,8 @@
 
       </div>
 
-    </div><!-- End Skills -->
+    </div> -->
+    <!-- End Skills -->
     
     <!-- End Counts -->
   </section><!-- End About Section -->
@@ -235,12 +232,9 @@
 
         <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
           <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://www.instagram.com/amukartgallery/?hl=en" class="linkedin" target="_blank"><i class="icofont-instagram"></i></a>
-              <a href="https://www.facebook.com/people/Katarina-D-Pistek/100008022164096" class="" target="_blank"><i class="icofont-facebook"></i></a>
-            </div>
+            <i class="bx bx-pen"></i>
+            <p>Where the spirit does not work with the hand, there is no art</p>
+            <p><i>- Leonardo da Vinci</i></p>
           </div>
         </div>
 
@@ -254,7 +248,7 @@
         <div class="col-md-6 mt-4 d-flex align-items-stretch">
           <div class="info-box">
             <i class="bx bx-phone-call"></i>
-            <h3>Custom Woodworking</h3>
+            <h3>Get a Quote</h3>
             <p>Inquire by email</p>
           </div>
         </div>
@@ -307,17 +301,23 @@
       for (var i = 1; i < (types[type].num + 1); i++) {
 
       let div = document.createElement("div");
+      let link = `assets/img/portfolio/${type}/${type}${i}.jpg`
+
       div.className = "col-lg-4 col-md-6 portfolio-item " + types[type].filter;
       div.innerHTML = `
         <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/${type}/${type}${i}.jpg" class="img-fluid" alt="">
+        <img src=${link} class="img-fluid" alt="">
         <div class="portfolio-info">
           <h3>${types[type].name}</h3>
           <h4>#${i}</h4>
+          <div class="portfolio-links">
+                <a href=${link} class="venobox" title="Project Details">
+                  <i class="bx bx-link"></i> View</a>
+          </div>
         </div>
         </div>
       `
-
+      
       divs.push(div);
 
       }
@@ -334,7 +334,18 @@
       console.log(i);
     }
 
-  </script>>
+  </script>
+
+  <script type="text/javascript">
+    function swipe() {
+     var largeImage = document.getElementById('largeImage');
+     largeImage.style.display = 'block';
+     largeImage.style.width=200+"px";
+     largeImage.style.height=200+"px";
+     var url=largeImage.getAttribute('src');
+     window.open(url,'Image','width=largeImage.stylewidth,height=largeImage.style.height,resizable=1');
+    }
+  </script>
 
 </body>
 
